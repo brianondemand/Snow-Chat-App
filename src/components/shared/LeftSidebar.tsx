@@ -1,5 +1,4 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-
 import { INavLink } from "@/types";
 import { sidebarLinks } from "@/constants";
 import { Loader } from "@/components/shared";
@@ -82,13 +81,15 @@ const LeftSidebar = () => {
         </ul>
       </div>
 
-      <Button
-        variant="ghost"
-        className="shad-button_ghost p-4"
-        onClick={(e) => handleSignOut(e)}>
-        <img src="/assets/icons/logout.svg" alt="logout" />
-        <p className="small-medium lg:base-medium">Logout</p>
-      </Button>
+      <div className="mt-6"> {/* Add this div for spacing */}
+        <Button
+          variant="ghost"
+          className="shad-button_ghost p-4"
+          onClick={(e) => handleSignOut(e)}>
+          <img src="/assets/icons/logout.svg" alt="logout" />
+          <p className="small-medium lg:base-medium">Logout</p>
+        </Button>
+      </div>
     </nav>
   );
 };
