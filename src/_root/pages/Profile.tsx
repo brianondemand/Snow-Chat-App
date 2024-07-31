@@ -39,9 +39,6 @@ const Profile = () => {
       </div>
     );
 
-  // Sort posts from latest to oldest
-  const sortedPosts = [...currentUser.posts].sort((a, b) => new Date(b.$createdAt).getTime() - new Date(a.$createdAt).getTime());
-
   return (
     <div className="profile-container">
       <div className="profile-inner_container">
@@ -65,7 +62,7 @@ const Profile = () => {
 
             <div className="flex gap-8 mt-10 items-center justify-center xl:justify-start flex-wrap z-20">
               <StatBlock value={currentUser.posts.length} label="Posts" />
-              <StatBlock value={4.5K} label="Followers" />
+              <StatBlock value={`1M`} label="Followers" />
               <StatBlock value={200} label="Following" />
             </div>
 
@@ -135,7 +132,7 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={sortedPosts} showUser={false} />}
+          element={<GridPostList posts={currentUser.posts} showUser={false} />}
         />
         {currentUser.$id === user.id && (
           <Route path="/liked-posts" element={<LikedPosts />} />
