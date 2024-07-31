@@ -83,7 +83,8 @@ const PostForm = ({ post, action }: PostFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="flex flex-col gap-9 w-full  max-w-5xl">
+        className="flex flex-col gap-9 w-full max-w-5xl"
+        autoComplete="off">
         <FormField
           control={form.control}
           name="caption"
@@ -94,6 +95,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 <Textarea
                   className="shad-textarea custom-scrollbar"
                   {...field}
+                  autoComplete="off"
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
@@ -125,7 +127,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
             <FormItem>
               <FormLabel className="shad-form_label">Add Location</FormLabel>
               <FormControl>
-                <Input type="text" className="shad-input" {...field} />
+                <Input type="text" className="shad-input" {...field} autoComplete="off" />
               </FormControl>
               <FormMessage className="shad-form_message" />
             </FormItem>
@@ -146,6 +148,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
                   type="text"
                   className="shad-input"
                   {...field}
+                  autoComplete="off"
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />

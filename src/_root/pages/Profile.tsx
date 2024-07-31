@@ -39,6 +39,9 @@ const Profile = () => {
       </div>
     );
 
+  // Sort posts from latest to oldest
+  const sortedPosts = [...currentUser.posts].sort((a, b) => new Date(b.$createdAt).getTime() - new Date(a.$createdAt).getTime());
+
   return (
     <div className="profile-container">
       <div className="profile-inner_container">
@@ -132,7 +135,7 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={currentUser.posts} showUser={false} />}
+          element={<GridPostList posts={sortedPosts} showUser={false} />}
         />
         {currentUser.$id === user.id && (
           <Route path="/liked-posts" element={<LikedPosts />} />
